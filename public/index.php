@@ -1,17 +1,15 @@
 <?php
-require_once '../controllers/ChatbotController.php';
+require_once '../app/controllers/ChatbotController.php';
 
 $controller = new ChatbotController();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['query'])) {
-    $query = $_POST['query'];
-    $results = $controller->searchWikipedia($query);
+$action = $_GET['action'] ?? 'index';
 
-echo "Result for your query";
-echo "<p>htmlspecialchars($results)</p>";
-echo"<a href='/'>Ask another question</a>";
-
-} else {
-    // Include the form view
-    include '../views/url_form.php';
+// Call the corresponding controller method.
+if ($action === 'index') {
+    // Display the chatbot interface
+    $controller->index();
+} elseif ($action === 'getResponse') {
+    // Handle the user query and return a response
+    $controller->getResponse();
 }
