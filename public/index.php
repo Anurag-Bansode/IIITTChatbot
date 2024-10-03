@@ -7,8 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['query'])) {
     $query = $_POST['query'];
     $results = $controller->searchWikipedia($query);
 
-    // Include the result view
-    include '../views/result.php';
+echo "Result for your query";
+echo "<p>htmlspecialchars($results)</p>";
+echo"<a href='/'>Ask another question</a>";
+
 } else {
     // Include the form view
     include '../views/url_form.php';
