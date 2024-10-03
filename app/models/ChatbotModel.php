@@ -10,8 +10,7 @@ class ChatbotModel{
             $title= $data['query']['search'][0]['title'];
             return $this->getSummary($title);
         }
-         return "Sorry ,I couldn't find  anything related";
-
+        return "Sorry ,I couldn't find  anything related";
     }
     public function getSummary($title) { 
         $url = $this->apiUrl . "?action=query&prop=extracts&exintro&explaintext&titles=" . urlencode($title) . "&format=json";

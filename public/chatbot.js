@@ -29,4 +29,13 @@ function addMessage(message, className) {
     messageDiv.textContent = message;
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
+
+    if (className==='bot-message')
+    {
+        messageDiv.innerHTML = '<i class="fa-solid fa-robot"></i>'+message;
+    }
+    else {
+
+        messageDiv.innerHTML = '<i class="fa-solid fa-user"></i>'+message;
+    }
 }
